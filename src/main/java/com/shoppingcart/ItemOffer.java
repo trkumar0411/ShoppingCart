@@ -11,6 +11,7 @@ public class ItemOffer {
 		itemOfferDetail.put(Item.APPLE, Offer.BUY_ONE_GET_ONE);
 		itemOfferDetail.put(Item.ORRANGE, Offer.THREE_FOR_PRICE_OF_TWO);
 		itemOfferDetail.put(Item.BANANA, Offer.BUY_ONE_GET_ONE);
+		itemOfferDetail.put(Item.MELON, Offer.THREE_FOR_PRICE_OF_TWO);
 	}
 
 	private ItemOffer() {

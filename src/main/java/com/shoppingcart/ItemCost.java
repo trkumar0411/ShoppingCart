@@ -25,6 +25,7 @@ public final class ItemCost {
 		costDetail.put(Item.APPLE, 0.60);
 		costDetail.put(Item.ORRANGE, 0.25);
 		costDetail.put(Item.BANANA, 0.20);
+		costDetail.put(Item.MELON, 1.00);
 	}
 
 	private ItemCost() { 
@@ -186,11 +187,19 @@ public final class ItemCost {
 		final Map<Item, Long> itemQuantity = cart.stream().collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
 		//System.out.println(itemQuantity);
 
+		final Long melonQuantity = itemQuantity.remove(Item.MELON);
+
 		if(cheapestForFree) {
 			totalCost = getTotalBillWithCHeapestForFree(itemQuantity);
 		}
 		else {
 			totalCost = getTotalBill(itemQuantity);
+		}
+
+		if(null != melonQuantity) {
+			double melonCost = getCost(Item.MELON, melonQuantity.intValue());
+			System.out.println(Item.MELON +  " : " + NumberUtil.formatNumber(melonCost, ".", 2) );
+			totalCost += melonCost;
 		}
 
 		System.out.println("\n\n");
@@ -220,6 +229,10 @@ public final class ItemCost {
 		itemsCart.add(Item.ORRANGE);
 		itemsCart.add(Item.ORRANGE);
 		itemsCart.add(Item.ORRANGE);
+		
+		itemsCart.add(Item.MELON);
+		itemsCart.add(Item.MELON);
+		itemsCart.add(Item.MELON);
 
 		System.out.println( "Total Bill :: " + CURRENCY + NumberUtil.formatNumber(getTotalBill(itemsCart),".", 2));
 

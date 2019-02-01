@@ -10,6 +10,7 @@ public class ItemOffer {
 	static {
 		itemOfferDetail.put(Item.APPLE, Offer.BUY_ONE_GET_ONE);
 		itemOfferDetail.put(Item.ORRANGE, Offer.THREE_FOR_PRICE_OF_TWO);
+		itemOfferDetail.put(Item.BANANA, Offer.BUY_ONE_GET_ONE);
 	}
 
 	private ItemOffer() {
